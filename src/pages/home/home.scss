@@ -1,0 +1,56 @@
+page-home {
+  ion-label {
+    min-height: 120px;
+    margin: 0 !important;
+  }
+
+  .label-ios {
+    min-height: 100px;
+  }
+
+  [item-top] {
+    margin-top: 15px;
+  }
+
+  [new-price] {
+    font-size: 18px !important;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+  }
+
+  [old-price] {
+    bottom: 30px;
+    position: absolute;
+    right: 0;
+    font-weight: 300;
+    text-decoration: line-through;
+
+    &[span-small] {
+      color: theme-colors('textColors', 'secondary');
+      font-size: font-size-text('h5');
+    }
+  }
+
+  .input-wrapper {
+    position: relative;
+
+    [item-subtitle] {
+      width: 75%;
+      text-transform: capitalize;
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+
+  ion-item-options {
+    border-bottom: 1px solid theme-colors('mainColors', 'secondary') !important;
+  }
+
+  .zoom-in {
+    -webkit-animation: zoomIn 500ms;
+    -moz-animation: zoomIn 500ms;
+    -o-animation: zoomIn 500ms;
+    animation: zoomIn 500ms;
+  }
+}

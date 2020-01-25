@@ -1,0 +1,35 @@
+<ion-split-pane>
+    <ion-menu [content]="content">
+        <ion-header>
+            <div class="header-background-image">
+                <img src="assets/images/logo/UpLogo.png">
+                <h2 item-title text-center>Up Media Tec</h2>
+            </div>
+        </ion-header>
+        <!-- Menu Main List -->
+        <ion-content color="primary">
+            <ion-list no-margin>
+                <button menuClose paddinge-left ion-item no-lines item-title main-menu>
+                    <ion-icon icon-small item-left>
+                        <i class="icon icon-home"></i>
+                    </ion-icon>
+                    Promoções
+                </button>
+                <button menuClose paddinge-left ion-item no-lines item-title main-menu>
+                    <ion-icon icon-small item-left>
+                        <i class="icon icon-star"></i>
+                    </ion-icon>
+                    Promoções
+                </button>
+                <ion-item (click)="menuItemHandler()">Main Menu</ion-item>
+                <ion-item-group submenu [class.visible]="showSubmenu">
+                    <ion-item submenu-item>Sub menu item</ion-item>
+                    <ion-item submenu-item>Sub menu item</ion-item>
+                    <ion-item submenu-item>Sub menu item</ion-item>
+                </ion-item-group>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+    <ion-nav [root]="rootPage" #content main swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

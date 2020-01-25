@@ -1,0 +1,13 @@
+page-categorias {
+  [header-subtitle],
+  [header-title] {
+    color: theme-colors('textColors', 'accent-first') !important;
+  }
+
+  .fade-in-item {
+    -webkit-animation: fadeIn 800ms;
+    -moz-animation: fadeIn 800ms;
+    -o-animation: fadeIn 800ms;
+    animation: fadeIn 800ms;
+  }
+}

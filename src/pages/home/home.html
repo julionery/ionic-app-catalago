@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button icon-only *ngIf="_us.ativo()" (click)="_us.sair()">
+                <ion-icon name="log-out"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            Meus Produtos
+        </ion-title>
+        <ion-buttons end padding-right="10px">
+            <button ion-button icon-only (click)="_cs.ver_carrinho()">
+                <ion-icon name="basket"></ion-icon>
+                <ion-badge color="danger"
+                           class="carrinho_numero"
+                            *ngIf="_cs.items.length > 0">
+                    {{ _cs.items.length }}
+                </ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+                <ion-list no-margin>
+                    <ion-item-sliding *ngFor="let item of _ps.produtos">
+                        <ion-item no-lines no-padding no-margina [ngClass]="animateClass" (click)="onItemClick(item)">
+                            <ion-thumbnail no-margin item-left>
+                                <img *ngIf="item.imagem!=null" [src]="item.imagem | imagem">
+                                <img *ngIf="item.imagem==null" src="../../assets/images/logo/LogoAzul.png"/>
+                            </ion-thumbnail>
+                            <div item-top>
+                                <h2 item-title padding-left>{{item.nome}}</h2>
+                            </div>
+                            <div item-bottom>
+                                <p item-subtitle padding-left left text-wrap>{{item.descricao}}</p>
+                                <span span-small right old-price>{{item.preco | currency:'BRL':true}}</span>
+                                <span span-medium right new-price>{{item.preco | currency:'BRL':true}}</span>
+                            </div>
+                        </ion-item>
+                    </ion-item-sliding>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll (ionInfinite)="nextPage($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

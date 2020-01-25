@@ -1,0 +1,32 @@
+/*  #Style Image Sub-Gallery for Category 2 (Music)
+================================================*/
+sub-image-gallery-layout-3 {
+  ion-card {
+    position: relative;
+    height: 130px;
+    width: 100% !important;
+  }
+
+  [gallery-title] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    @include gradient-accent (rgba(0, 190, 228, 0.5) 0%, rgba(0, 145, 210, 0.5) 100% );
+    min-height: 45px;
+    border-bottom: 1px solid transparent !important;
+
+    [card-title] {
+        color: theme-colors('textColors', 'accent-first') !important;
+        margin-top: 7px;
+    }
+
+    ion-icon .icon {
+      color: theme-colors('textColors', 'primary');
+      font-size: icon-size('icon-small');
+      margin-top: 5px;
+      display: block;
+    }
+  }
+}

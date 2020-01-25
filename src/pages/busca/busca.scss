@@ -1,0 +1,8 @@
+page-busca {
+  [search-bar-bcg] {
+    .searchbar-input {
+      background-color: transparent;
+      color: theme-colors('textColors', 'primary');
+    }
+  }
+}

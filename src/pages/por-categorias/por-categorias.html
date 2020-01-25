@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ categoria.nome }}</ion-title>
+        <ion-buttons end padding-right="10px">
+            <button ion-button icon-only>
+                <ion-icon name="basket"></ion-icon>
+                <ion-badge color="danger"
+                           class="carrinho_numero"
+                           *ngIf="_cs.items.length > 0">
+                    {{ _cs.items.length }}
+                </ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of _ps.por_categoria">
+            <ion-thumbnail item-left>
+                <img *ngIf="item.imagem!=null" [src]="item.imagem | imagem">
+                <img *ngIf="item.imagem==null" src="../../assets/images/logo/LogoAzul.png"/>
+            </ion-thumbnail>
+
+            <h2>{{ item.nome }}</h2>
+            <p>{{ item.preco }}</p>
+
+            <button ion-button clear item-right (click)="onItemClick(item)">Ver</button>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="nextPage($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

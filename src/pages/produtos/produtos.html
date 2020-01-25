@@ -1,0 +1,29 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ produto.nome}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <img *ngIf="produto.imagem!=null" [src]="produto.imagem | imagem">
+    <img *ngIf="produto.imagem==null" src="../../assets/images/logo/LogoAzul.png" height="261" width="371"/>
+
+    <div padding>
+        <h5>{{ produto.nome }}</h5>
+        <p>
+            <strong>Preço: </strong> {{ produto.preco | currency:'BRL':true }}
+        </p>
+        <p>
+            {{ produto.descricao }}
+        </p>
+
+        <button ion-button block icon-left
+                (click)="_cs.add_carrinho(produto)">
+            <ion-icon name="basket"></ion-icon>
+            Adicionar a Cesta!
+        </button>
+    </div>
+</ion-content>

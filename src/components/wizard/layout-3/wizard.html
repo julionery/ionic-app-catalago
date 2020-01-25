@@ -1,0 +1,19 @@
+<!--Theme Wizard Big Image -->
+<button skip button-clear clear ion-button text-right>
+    {{data.btnSkip}}
+</button>
+<ion-slides #wizardSlider *ngIf="data.items.length" (ionSlideDidChange)="slideHasChanged()" pager="true">
+  <ion-slide background-size *ngFor="let item of data.items;" [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}">
+    <div wizard-description text-left>
+      <h1 wizard-title>{{item.title}}</h1>
+      <h3 wizard-body-text>{{item.description}}</h3>
+    </div>
+  </ion-slide>
+</ion-slides>
+<!--Button section-->
+<button navigation text-center button-clear clear ion-button (click)="changeSlide(1)" *ngIf="show('next')">
+    {{data.btnNext}}
+</button>
+<button navigation text-center button-clear clear ion-button (click)="onEvent('onFinish')" *ngIf="show('finish')">
+    {{data.btnFinish}}
+</button>
